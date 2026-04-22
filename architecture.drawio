@@ -1,0 +1,100 @@
+<mxfile host="app.diagrams.net" modified="2026-04-20" version="21.0.0">
+  <diagram name="AI写作系统架构" id="ai-writing-system">
+    <mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- 工程脚本层 -->
+        <mxCell id="orchestrator" value="工程脚本 (Orchestrator)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="527" y="40" width="300" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 客户材料输入 -->
+        <mxCell id="input" value="客户材料输入&#xa;(PPT / PDF / DOCX / ...)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="577" y="160" width="200" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 藏经阁知识库 -->
+        <mxCell id="zangjingge" value="藏经阁 知识库" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="980" y="280" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="zangjingge_detail" value="① 标签简化&#xa;② KV 索引构建&#xa;③ 标签检索&#xa;④ 证据提取 Skill" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;align=left;" vertex="1" parent="1">
+          <mxGeometry x="960" y="345" width="200" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- 产品 Agent -->
+        <mxCell id="product_agent" value="产品 Agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="577" y="280" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="product_detail" value="Speckit 流程&#xa;① 输入结构化 Skill&#xa;② 证据补充 Skill&#xa;③ PRD 审核 Skill" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;align=left;" vertex="1" parent="1">
+          <mxGeometry x="557" y="345" width="240" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- 产品审核 Agent -->
+        <mxCell id="product_reviewer" value="产品审核 Agent&#xa;（子 Agent）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="200" y="345" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 写作 Agent -->
+        <mxCell id="writing_agent" value="写作 Agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="577" y="490" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="writing_detail" value="Speckit 流程&#xa;① 写作 Skills&#xa;② 成稿审核 Skill" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;align=left;" vertex="1" parent="1">
+          <mxGeometry x="557" y="555" width="240" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 写作审核 Agent -->
+        <mxCell id="writing_reviewer" value="写作审核 Agent&#xa;（子 Agent）" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="200" y="555" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 最终成稿 -->
+        <mxCell id="output" value="最终成稿" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="627" y="680" width="100" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- 连线：Orchestrator → 客户材料 -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="orchestrator" target="input" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 连线：客户材料 → 产品 Agent -->
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="input" target="product_agent" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 连线：藏经阁 → 产品 Agent（证据） -->
+        <mxCell id="e3" value="证据" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#82b366;" edge="1" source="zangjingge" target="product_agent" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 连线：藏经阁 → 写作 Agent（证据） -->
+        <mxCell id="e4" value="证据" style="edgeStyle=orthogonalEdgeStyle;dashed=1;strokeColor=#82b366;" edge="1" source="zangjingge_detail" target="writing_agent" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 连线：产品 Agent → 产品审核 Agent -->
+        <mxCell id="e5" value="创建" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d79b00;" edge="1" source="product_agent" target="product_reviewer" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 连线：产品 Agent → 写作 Agent（PRD） -->
+        <mxCell id="e6" value="PRD" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="product_agent" target="writing_agent" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 连线：写作 Agent → 写作审核 Agent -->
+        <mxCell id="e7" value="创建" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#d79b00;" edge="1" source="writing_agent" target="writing_reviewer" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 连线：写作 Agent → 最终成稿 -->
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="writing_agent" target="output" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
