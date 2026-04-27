@@ -3,7 +3,7 @@
 ## Phase 1 · 数据来源层
 
 - [ ] **素材平台数据库接入** `src/data_layer/knowledge_base.py - MaterialPlatformClient`
-  - 连接素材平台 SQLite 数据库（`ai-awesome-material-platform/backend/database-dev.sqlite`）
+  - 连接素材平台 SQLite 数据库（`ai-awesome-material-platform/backend/database.sqlite`）
   - 实现 `get_all_tags()` 查询 `tags` 表获取所有可用标签
   - 实现 `get_articles_by_tag()` 通过 `material_tags` + `cang_materials` 表检索知识资产
 

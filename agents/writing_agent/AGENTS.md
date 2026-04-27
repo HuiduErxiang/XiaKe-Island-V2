@@ -184,7 +184,7 @@ Phase 3: 润色与统一
 
 **行为**：
 1. 按 Phase 顺序逐条执行
-2. 素材补充类任务 → 调用对应 Kimi Skill
+2. 素材补充类任务 → 调用对应 Claude Skill
 3. 撰写类任务 → 按写作计划逐段产出
 4. 每段完成后自检（见下方「段落自检清单」）
 
@@ -278,19 +278,19 @@ Agent 工具参数：
 
 ---
 
-## 可用 Kimi Skills
+## 可用 Claude Skills
 
-writing_agent 在执行过程中，有权调用以下 Kimi Skills：
+writing_agent 在执行过程中，有权调用以下 Claude Skills：
 
 ### 1. cang-tag-search Skill（藏经阁标签检索）
-- **Skill ID**：`.kimi/skills/cang-tag-search/`
+- **Skill ID**：`.claude/skills/cang_tag_search/`
 - **用途**：若 PRD 证据不足以支撑某章节，可补充检索藏经阁获取额外知识资产
 - **调用时机**：Step ③/④ 中，发现 PRD 证据缺失时
 - **输入**：标签/关键词列表
 - **输出**：知识资产列表
 
 ### 2. pdf-distiller Skill（PDF 结构化提取）
-- **Skill ID**：`.kimi/skills/pdf-distiller/`
+- **Skill ID**：`.claude/skills/pdf_distiller/`
 - **用途**：从补充检索到的 PDF 中提取结构化内容
 - **调用时机**：Step ③/④ 中，需要深入分析补充 PDF 时
 - **输入**：PDF 文件路径
