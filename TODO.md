@@ -2,21 +2,27 @@
 
 ## Phase 1 · 数据来源层
 
-- [ ] **藏经阁 API 接入** `src/data_layer/knowledge_base.py - ZangjinggeClient`
-  - 确认藏经阁接口文档，实现 `get_all_tags()` 和 `get_articles_by_tag()`
+- [ ] **素材平台数据库接入** `src/data_layer/knowledge_base.py - MaterialPlatformClient`
+  - 连接素材平台 SQLite 数据库（`ai-awesome-material-platform/backend/database-dev.sqlite`）
+  - 实现 `get_all_tags()` 查询 `tags` 表获取所有可用标签
+  - 实现 `get_articles_by_tag()` 通过 `material_tags` + `cang_materials` 表检索知识资产
 
 - [ ] **标签简化模块** `src/data_layer/knowledge_base.py - TagSimplifier`
-  - 实现标签清洗（去噪、去重、规范化命名）逻辑
+  - 对素材平台 `tags` 表中的标签进行清洗（去噪、去重、规范化命名）
 
 - [ ] **KV 索引构建** `src/data_layer/knowledge_base.py - KVIndexBuilder`
   - 确定存储方案（内存 / Redis / 本地 JSON）
-  - 实现 `build()` 全量拉取并构建索引
+  - 基于素材平台 `cang_materials` + `material_tags` 数据构建索引
 
 - [ ] **标签检索** `src/data_layer/knowledge_base.py - TagRetriever`
   - 实现意图 → 标签匹配算法（关键词匹配 / 向量检索）
+  - 检索范围：素材平台数据库中的 `cang_materials` 记录
 
 - [ ] **证据提取 Skill** `src/data_layer/knowledge_base.py - EvidenceExtractSkill`
-  - 实现从文章中精细抽取结构化证据片段
+  - 根据检索结果中的 `url` 定位 uploads 目录下的 PDF 文件
+  - 从 PDF 中精细抽取结构化证据片段
+
+> **注意**：cang 仓库（`huidu/cang`）不再作为活跃数据源，仅保留 Git 历史用于追溯。所有数据操作均针对素材平台数据库和 uploads 目录。
 
 ---
 
@@ -30,7 +36,7 @@
 
 - [ ] **证据补充 Skill** `src/agents/product_agent/skills/evidence_supplement_skill.py`
   - 实现从 PRD 内容中提取检索意图
-  - 调用 EvidenceExtractSkill 注入证据到 PRD
+  - 调用素材平台数据库查询注入证据到 PRD
 
 - [ ] **产品审核子 Agent** `src/agents/product_agent/skills/prd_review_skill.py - ProductReviewAgent`
   - 定义审核维度（完整性 / 逻辑性 / 需求覆盖度）
@@ -61,6 +67,7 @@
 
 - [ ] **配置管理**
   - 提取硬编码配置（重试次数、写作风格等）到配置文件
+  - 配置项需包含素材平台数据库路径和 uploads 目录路径
 
 - [ ] **单元测试**
   - 为各 Skill 编写单元测试，使用 mock 替代外部依赖
