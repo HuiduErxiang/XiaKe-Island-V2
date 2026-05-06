@@ -1,0 +1,6 @@
+{
+  "mode": "evidence_review",
+  "writing_requirement": "   ",
+  "evidence_fragments": [{"content": "test", "source": "test"}],
+  "expected": {"error": "empty_requirement"}
+}

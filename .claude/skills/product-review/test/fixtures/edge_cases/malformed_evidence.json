@@ -1,0 +1,10 @@
+{
+  "mode": "evidence_review",
+  "writing_requirement": "## 写作需求\n测试疗效数据",
+  "evidence_fragments": [
+    {"content": "valid evidence", "source": "source1"},
+    {"content": "", "source": "source2"},
+    {"source": "missing_content_field"}
+  ],
+  "expected": {"field_error": true}
+}

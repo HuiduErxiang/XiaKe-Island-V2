@@ -1,0 +1,9 @@
+{
+  "mode": "prd_review",
+  "writing_requirement": "## 写作需求\n写一篇关于仑卡奈单抗治疗阿尔茨海默病的科普文章。\n\n### 需要覆盖的信息点\n- 疗效数据\n- 安全性数据\n- 作用机制",
+  "prd_content": "## 疗效分析\n\n仑卡奈单抗在 III 期试验中显示显著疗效。该药物明显改善了患者的认知功能，效果非常显著。\n\n## 安全性分析\n\n仑卡奈单抗总体安全可控。",
+  "expected": {
+    "verdict": "revision_required",
+    "ready_for_handoff": false
+  }
+}

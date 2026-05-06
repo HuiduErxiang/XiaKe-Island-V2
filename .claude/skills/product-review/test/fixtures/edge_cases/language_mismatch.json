@@ -1,0 +1,12 @@
+{
+  "mode": "evidence_review",
+  "writing_requirement": "## 写作需求\n写一篇关于阿尔茨海默病的科普文章，包含疗效数据。",
+  "evidence_fragments": [
+    {
+      "content": "Lecanemab showed significant reduction in CDR-SB decline (-0.45 vs -0.18, p<0.001) in the Clarity AD trial.",
+      "source": "NEJM 2023",
+      "theme": "efficacy"
+    }
+  ],
+  "expected": {"sufficiency": "partial"}
+}

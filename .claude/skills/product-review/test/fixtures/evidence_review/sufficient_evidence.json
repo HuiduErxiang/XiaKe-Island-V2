@@ -1,0 +1,25 @@
+{
+  "mode": "evidence_review",
+  "writing_requirement": "## 写作需求\n写一篇关于仑卡奈单抗治疗阿尔茨海默病的科普文章。\n\n### 需要覆盖的信息点\n- 疗效数据：III 期临床试验主要终点\n- 安全性数据：ARIA 发生率\n- 作用机制：Aβ 原纤维靶向",
+  "evidence_fragments": [
+    {
+      "content": "Clarity AD 试验：仑卡奈单抗组 CDR-SB 评分较基线变化 -0.45，安慰剂组 -0.18（p<0.001），显示显著疗效。",
+      "source": "NEJM 2023; 388:9-21",
+      "theme": "疗效数据"
+    },
+    {
+      "content": "仑卡奈单抗靶向可溶性 Aβ 原纤维，通过清除淀粉样蛋白斑块沉积发挥治疗作用，其作用机制涉及选择性结合 Aβ 寡聚体。",
+      "source": "文献综述",
+      "theme": "作用机制"
+    },
+    {
+      "content": "ARIA-E 发生率为 12.6%，ARIA-H 发生率为 17.3%，多数为轻度至中度，整体安全性可控。",
+      "source": "NEJM 2023; 388:9-21",
+      "theme": "安全性数据"
+    }
+  ],
+  "expected": {
+    "sufficiency": "sufficient",
+    "ready_for_drafting": true
+  }
+}

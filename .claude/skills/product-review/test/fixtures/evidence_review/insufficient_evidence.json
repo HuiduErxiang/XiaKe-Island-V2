@@ -1,0 +1,15 @@
+{
+  "mode": "evidence_review",
+  "writing_requirement": "## 写作需求\n写一篇关于仑卡奈单抗治疗阿尔茨海默病的科普文章。\n\n### 需要覆盖的信息点\n- 疗效数据：III 期临床试验主要终点\n- 安全性数据：ARIA 发生率\n- 作用机制：Aβ 原纤维靶向\n- 经济性评估：药物经济学",
+  "evidence_fragments": [
+    {
+      "content": "Clarity AD 试验：仑卡奈单抗组 CDR-SB 评分较基线变化 -0.45，安慰剂组 -0.18（p<0.001）。",
+      "source": "NEJM 2023; 388:9-21",
+      "theme": "疗效数据"
+    }
+  ],
+  "expected": {
+    "sufficiency": "insufficient",
+    "ready_for_drafting": false
+  }
+}

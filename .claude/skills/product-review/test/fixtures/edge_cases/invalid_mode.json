@@ -1,0 +1,6 @@
+{
+  "mode": "invalid_review",
+  "writing_requirement": "## 写作需求\n测试",
+  "evidence_fragments": [{"content": "test", "source": "test"}],
+  "expected": {"error": "invalid_mode"}
+}
